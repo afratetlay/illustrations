@@ -1,0 +1,5 @@
+.inner_main_menu {margin: 0 auto; width:1170px;}
+.inner_main_menu ul{margin: 0; padding; list-style: none;text-align: right;}
+.inner_main_menu ul li{float: none; display: inline-block;}
+.inner_main_menu ul li:nth-child(1){float: left;}
+.inner_main_menu ul li:nth-child(2){float: left;}
