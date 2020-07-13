@@ -1,3 +1,8 @@
+body {
+    font-family: Montserrat;
+}
+
+
 /* This is the button on the navbar */ 
 .cta {
     box-sizing: border-box;
