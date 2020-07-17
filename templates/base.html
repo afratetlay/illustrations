@@ -34,32 +34,9 @@
   </head>
 
   <body>
-   <nav class="navbar navbar-expand-lg navbar-light">
-<img src="static/images/logo.svg" alt="" id="logo">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link about" href="#">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Illustrations</a>
-      </li>
-      <li class="nav-item cta">
-        <a class="nav-link tab" href="#">Login/ Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="static/images/cart.svg" alt=""></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-    
 
-    {% if messages %}
-    
+    {% if navbar != False %}
+    {% include 'components/navbar.html' %}
     {% endif %}
 
     {% block page_header %}

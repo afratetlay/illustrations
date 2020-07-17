@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
      <div class="container-fluid">
         <div class="row">
         <div class="col-md-6">
@@ -19,22 +20,58 @@
             </div>
             <div class="col-md-6">
                 <div class="about-image">
-                    <img src="static/images/tent.svg" alt="About us" class="img-fluid">
+                    <img src="static/img/tent.svg" alt="About us" class="img-fluid">
                 </div>
             </div>
             
         </div>
     </div>     
 
-    <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-6">
-        <img src="static/images/about.svg" alt="" id="about">
-        </div>
-        <div class="col-md-6">
-        <h1 class="about_us"> About Us</h1>
-        <p class="about_para">At Illustrations, we work hard to provide our users with cool, fun, in trend, unique Illustrations which can be incorporated into websites, posters, T-Shirts etc. We update every week with new fun and exciting illustrations and offer personalised illustrations to meet the users needs.  </p>
-        </div>
-        </div>
-    </div>
+    <main>
+<section class="row">
+<div class="col-md-6">
+<img src="static/img/about.svg" alt="" class="img-fluid about">
+</div>
+<div class="col-md-6">
+<h1 class="about_us"><b>About Us</b></h1>
+<p class="about_para">We are a start up company providing illustartions to the public to use for their websites, social medias, print out etc. </p>
+</div>
+</section>
+</main>
+
+<main>
+<section class="gallery">
+<div class="info">
+<h1>Gallery</h1>
+<p>Take a  look at our awesome illustrations below!</p>
+</div>
+</section>
+</main>
+
+
+<div class="gallery">
+<div class="img-container">
+<img src="static/img/adventure1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="adventure1.svg">
+</div>
+<div class="img-container">
+<img src="static/img/different_ages1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="creative_person1.svg">
+</div>
+<div class="img-container">
+<img src="static/img/creative_person1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="different_ages1.svg">
+</div>
+<div class="img-container">
+<img src="static/img/hospital1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="hospital.svg">
+</div>
+<div class="img-container">
+<img src="static/img/influencer1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="influencer1.svg">
+</div>
+<div class="img-container">
+<img src="static/img/imagination1.svg" alt="Let's have an adventure around the world" class="img-fluid" data-original="imagination1.svg">
+</div>
+</div>
+<div class="box-1">
+  <div class="btn btn-one">
+    <span><a href="products.html">View more!</a></span>
+  </div>
+</div>
 {% endblock %}
