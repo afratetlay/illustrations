@@ -5,7 +5,7 @@
 
 <h1>Illustrations</h1>
 {% for product in products %}
-<div class="container">
+<!--<div class="container">
 <div class="row">
 <div class="col-md-4">
 <div class="card" style="width: 18rem;">
@@ -15,7 +15,11 @@
     <p class="card-text">{{ product.description }}</p>
     <p> {{ product.price }}</p>
    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-
+  </div>
+</div>
+</div>
+</div>
+</div>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -24,12 +28,24 @@
   </div>
 </div>
 
-  </div>
+-->
+<div class="container">
+<div class="row">
+<div class="col-md-4 product-grid">
+<div class="image">
+<a href="{% url 'product_detail' product.id %}">
+ <img src="{{MEDIA_URL}}{{product.image}}" class="product.image w-100" alt="{{product.name}}">
+<div class="overlay">
+<div class="detail">View Details</div>
+</div>
+</a>
+</div>
+<h4 class="text-center">{{ product.name }}</h4>
+<h5 class="text-center">{{ product.description }}</h5>
+<h5 class="text-center">{{ product.price }}</h5>
 </div>
 </div>
 </div>
-</div>
-
 
 {% endfor %}
 {% endblock %}
