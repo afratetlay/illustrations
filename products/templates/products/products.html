@@ -3,22 +3,22 @@
 
 {% block content %}
 
-<h1>Illustrations</h1>
+<h1 class="pt-5 pl-4">Illustrations</h1>
    <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}> Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}><a href="{% url 'products' %}?sort=price&direction=asc">Price (low to high)</a></option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}> Price (high to low)</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
-              <div class="col-12 col-md-6 order-md-first">
+              <div class="col-12 col-md-6 order-md-first pl-5">
                         <p class="text-muted mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
                                 <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
@@ -27,7 +27,6 @@
                         </p>
                     </div>
                 </div>
-   </div>
 {% for product in products %}
 <!--<div class="container">
 <div class="row">
@@ -55,7 +54,7 @@
 -->
 <div class="container">
 <div class="row">
-<div class="col-md-4 product-grid">
+<div class="col-md-3">
 <div class="image">
 <a href="{% url 'product_detail' product.id %}">
  <img src="{{MEDIA_URL}}{{product.image}}" class="product.image w-100" alt="{{product.name}}">
@@ -66,10 +65,11 @@
 </div>
 <h4 class="text-center">{{ product.name }}</h4>
 <h5 class="text-center">{{ product.description }}</h5>
-<h5 class="text-center"><a href="{% url 'products' %}?sort=price&direction=asc"></a>{{ product.price }}</h5>
+<h5 class="text-center">£{{ product.price }}</h5>
 </div>
 </div>
 </div>
+
 
 {% endfor %}
 {% endblock %}
