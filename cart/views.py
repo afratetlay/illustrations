@@ -13,5 +13,4 @@ def add_to_bag(request, item_id):
     cart = request.session.get('cart', {})
 
     request.session['cart'] = cart
-    print(request.session['cart'])
     return redirect(redirect_url)
