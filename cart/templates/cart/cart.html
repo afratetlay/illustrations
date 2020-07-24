@@ -19,6 +19,7 @@
                         <th scope="col">Product Info</th>
                         <th scope="col"></th>
                         <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
                         <th scope="col">Subtotal</th>
                     </tr>
                 </thead>
@@ -35,13 +36,37 @@
                          <td class="py-3">
                             <p class="my-0">£{{ item.product.price }}</p>
                         </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">{{ item.quantity }}</p>
+                        </td> 
                          <td class="py-3">
-                            <p class="my-0">{{ item.product.price }}</p>
+                            <p class="my-0">£{{ item.product.price }}</p>
                         </td>
                     </tr>
                 {% endfor %}
-            </table>
-        </div>
+
+
+         <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
+                                    <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'products' %}" class="btn">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-white">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn">
+                                        <span class="pb-2 text-white">Secure Checkout</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
         {% else %}
         <h3 class="text-center pt-5">Your cart is empty</h3>
         </div>
