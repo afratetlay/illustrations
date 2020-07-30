@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from products.models import Product 
 
 class Order(models.Model):
@@ -14,11 +13,16 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def __str__(self):
-        return 'Congratulations {self.fullname}, please check your email for your illustrations'.format(self=self)
+        return {self.name}
+
+def update_total(self):
+    self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum']
+
 
 class OrderLineItem(models.Model):
     
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     
     def __str__(self):
-        return 'You have ordered {self.product}'.format(self=self)
+        return {self.product} 
