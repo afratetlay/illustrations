@@ -16,7 +16,7 @@ class Order(models.Model):
         return {self.name}
 
 def update_total(self):
-    self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum']
+    self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum'] or 0
 
 
 class OrderLineItem(models.Model):
