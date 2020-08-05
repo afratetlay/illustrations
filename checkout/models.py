@@ -18,10 +18,9 @@ class Order(models.Model):
 def update_total(self):
     self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum'] or 0
 
-
 class OrderLineItem(models.Model):
     
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems', default='0')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     
     def __str__(self):

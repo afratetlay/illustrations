@@ -10,11 +10,9 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('grand_total',)
 
-    fields = ('full_name', 'email', 'phone_number', 
+    fields = ('full_name', 'email', 
     'order_total', 'grand_total',)
 
     list_display = ('full_name', 'order_total', 'grand_total',)
-
-    
 
 admin.site.register(Order, OrderAdmin)
