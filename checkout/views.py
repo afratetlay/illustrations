@@ -79,7 +79,7 @@ def checkout(request):
 
 # Checkout success view, let the user know that their payment has gone through and will redirect them to checkout_success page
 
-def checkout_success(request):
+def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
