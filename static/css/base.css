@@ -271,3 +271,17 @@ div[class*=box] {
 
 
 
+/* Testimonials */
+/* testimonials */
+#testimonials-section {
+  background-color: #6C63FF;
+  color: white;
+}
+
+.testimonial-wrapper {
+  padding: 1rem;
+}
+
+#testimonials-container {
+  padding: 2rem 1rem;
+}

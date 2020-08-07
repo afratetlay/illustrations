@@ -16,7 +16,6 @@ def checkout(request):
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -31,6 +30,7 @@ def checkout(request):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
+                            quantity=item_data
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
@@ -75,17 +75,19 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
+
     return render(request, template, context)
 
-def checkout_success(request, order_number):
+# Checkout success view, let the user know that their payment has gone through and will redirect them to checkout_success page
+
+def checkout_success(request):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+         Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
 
 
     if 'cart' in request.session:
@@ -97,4 +99,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-    

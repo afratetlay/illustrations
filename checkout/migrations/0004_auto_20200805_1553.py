@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='orderlineitem',
             name='order',
-            field=models.ForeignKey(default='0', on_delete=django.db.models.deletion.CASCADE, related_name='lineitems', to='checkout.Order'),
+            field=models.ForeignKey(default='1', on_delete=django.db.models.deletion.CASCADE, related_name='lineitems', to='checkout.Order'),
         ),
     ]

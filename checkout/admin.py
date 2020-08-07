@@ -8,11 +8,13 @@ class OrderLineItemAdminInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
 
-    readonly_fields = ('grand_total',)
+    readonly_fields = ('order_number','grand_total',)
 
-    fields = ('full_name', 'email', 
+    fields = ('order_number', 'full_name', 'email', 
     'order_total', 'grand_total',)
 
-    list_display = ('full_name', 'order_total', 'grand_total',)
+    list_display = ('order_number', 'full_name', 'order_total', 'grand_total',)
+
+    ordering = ('full_name',)
 
 admin.site.register(Order, OrderAdmin)
